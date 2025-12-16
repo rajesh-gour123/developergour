@@ -1,0 +1,155 @@
+<!-- CONTACT SECTION -->
+<section class="contact-section" id="contact">
+  <div class="container py-5">
+
+    <h2 class="text-center fw-bold mb-2 contact-animate">
+      Let’s Work Together
+    </h2>
+
+    <p class="text-center text-muted mb-4 contact-animate">
+      Tell me about your project and I’ll get back to you within 24 hours.
+    </p>
+
+    <div class="row g-4 align-items-stretch">
+
+      <!-- CONTACT FORM -->
+      <div class="col-lg-7 contact-animate">
+        <form class="needs-validation contact-form" novalidate>
+
+          <div class="mb-3">
+            <input type="text" name="name" class="form-control input-custom" placeholder="Your Name" required>
+            <div class="invalid-feedback">Please enter your name.</div>
+          </div>
+
+          <div class="mb-3">
+            <input type="email" name="email" class="form-control input-custom" placeholder="Your Email" required>
+            <div class="invalid-feedback">Please enter a valid email.</div>
+          </div>
+
+          <div class="mb-3">
+            <textarea name="message" rows="4" class="form-control input-custom" placeholder="Your Message"
+              required></textarea>
+            <div class="invalid-feedback">Message cannot be empty.</div>
+          </div>
+
+          <button type="submit" class="btn-main w-100">
+            Send Message
+          </button>
+        </form>
+      </div>
+
+      <!-- CONTACT INFO -->
+<div class="col-lg-5 contact-animate">
+  <div class="contact-box h-100">
+
+    <p>
+      <i class="bi bi-geo-alt-fill me-2 text-primary"></i>
+      <b>Location:</b> Hailakndi, Assam, India
+    </p>
+
+    <p>
+      <i class="bi bi-envelope-fill me-2 text-primary"></i>
+      <b>Email:</b> rajeshgour929@gmail.com
+    </p>
+
+    <p>
+      <i class="bi bi-telephone-fill me-2 text-primary"></i>
+      <b>Phone:</b> +91 6002883663
+    </p>
+
+    <!-- WhatsApp (high priority) -->
+    <a
+      href="https://wa.me/916002883663?text=Hi%20Rajesh,%20I%20want%20to%20discuss%20a%20project."
+      target="_blank"
+      class="btn-whatsapp"
+    >
+      <i class="bi bi-whatsapp me-2"></i>
+      Chat on WhatsApp
+    </a>
+
+    <small class="d-block text-muted mt-2">
+      Usually replies within 24 hours
+    </small>
+
+    <div class="contact-social mt-3">
+      <a href="mailto:rajeshgour929@gmail.com" class="social-btn email">
+        <i class="bi bi-envelope-fill me-1"></i> Email
+      </a>
+
+      <a href="https://linkedin.com/in/gourrajesh" target="_blank" class="social-btn linkedin">
+        <i class="bi bi-linkedin me-1"></i> LinkedIn
+      </a>
+
+      <a href="https://github.com/yourusername" target="_blank" class="social-btn github">
+        <i class="bi bi-github me-1"></i> GitHub
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+    </div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+  (function () {
+    "use strict";
+
+    const forms = document.querySelectorAll(".needs-validation");
+
+    forms.forEach(form => {
+
+      // Live validation
+      form.querySelectorAll("input, textarea").forEach(field => {
+        field.addEventListener("input", () => {
+          if (field.checkValidity()) {
+            field.classList.remove("is-invalid");
+            field.classList.add("is-valid");
+          } else {
+            field.classList.remove("is-valid");
+            field.classList.add("is-invalid");
+          }
+        });
+      });
+
+      // Submit handler
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        if (!form.checkValidity()) {
+          form.classList.add("was-validated");
+          return;
+        }
+
+        // Prepare data
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+
+        // POST request
+        const res = await fetch("/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+
+        const json = await res.json();
+
+        if (json.success) {
+          Swal.fire("Success", json.msg, "success");
+
+          form.reset();
+          form.classList.remove("was-validated");
+          form.querySelectorAll(".is-valid").forEach(el => el.classList.remove("is-valid"));
+        }
+        else {
+          Swal.fire("Error", json.error, "error");
+        }
+      });
+
+    });
+  })();
+</script>

@@ -1,0 +1,29 @@
+.trust-section {
+  background: #ffffff;
+}
+
+.trust-box {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 24px 20px;
+  border-radius: 16px;
+  background: #f9fafb;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.05);
+}
+
+.trust-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.trust-items span {
+  font-size: 14px;
+  color: #374151;
+  background: #ffffff;
+  padding: 6px 12px;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}

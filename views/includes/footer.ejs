@@ -1,0 +1,82 @@
+<footer class="footer footer-animate">
+  <div class="footer-glass">
+
+    <div class="footer-grid footer-items">
+
+      <!-- Brand Section -->
+      <div>
+        <img src="/image/newa.png" class="footer-logo" alt="Rajesh Gour Logo">
+        <h3>Rajesh Gour</h3>
+        <p class="footer-desc">
+          Full Stack Web Developer specializing in MERN Stack.
+          Building scalable, high-performance applications for businesses worldwide.
+        </p>
+
+        <div class="footer-social">
+          <a href="https://linkedin.com/in/gourrajesh" target="_blank" aria-label="LinkedIn">
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub">
+            <i class="bi bi-github"></i>
+          </a>
+          <a href="https://facebook.com/" target="_blank" aria-label="Facebook">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="https://instagram.com/" target="_blank" aria-label="Instagram">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="https://youtube.com/" target="_blank" aria-label="YouTube">
+            <i class="bi bi-youtube"></i>
+          </a>
+        </div>
+
+
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Full Stack Development</a></li>
+          <li><a href="#services">React.js Development</a></li>
+          <li><a href="#services">API Development</a></li>
+          <li><a href="#services">Database Design</a></li>
+          <li><a href="#services">Website Maintenance</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <hr>
+
+    <p class="footer-copy">© 2025 Rajesh Gour — All Rights Reserved.</p>
+  </div>
+
+  <!-- Scroll To Top -->
+  <button class="scroll-top" id="backToTopBtn" aria-label="Back to top">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+</footer>
+<script>
+  const btn = document.getElementById("backToTopBtn");
+
+  window.addEventListener("scroll", () => {
+    btn.style.display = window.scrollY > 300 ? "block" : "none";
+  });
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>

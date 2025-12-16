@@ -1,0 +1,179 @@
+/* =========================
+   FOOTER AREA
+========================= */
+.footer {
+  margin-top: 80px;
+  background: linear-gradient(135deg, #0ea5e9, #22c55e);
+  padding: 40px 20px 25px;
+  position: relative;
+  color: #fff;
+}
+
+/* Glass container */
+.footer-glass {
+  max-width: 1100px;
+  margin: auto;
+  padding: 35px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Grid layout */
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 40px;
+}
+
+/* Logo */
+.footer-logo {
+  width: 70px;
+  margin-bottom: 10px;
+}
+
+/* Description */
+.footer-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-top: 6px;
+}
+
+/* =========================
+   SOCIAL ICONS
+========================= */
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  font-size: 18px;
+  color: #fff;
+  border-radius: 50%;
+  transition: all 0.25s ease;
+}
+
+.footer-social a:hover {
+  background: #ffffff;
+  color: #0ea5e9;
+  transform: translateY(-3px);
+}
+
+/* =========================
+   HEADINGS & LINKS
+========================= */
+.footer h4 {
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+.footer ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.footer ul li {
+  margin-bottom: 8px;
+}
+
+.footer ul li a {
+  color: #e7faff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.25s ease;
+}
+
+/* =========================
+   COPYRIGHT
+========================= */
+.footer-copy {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* =========================
+   SCROLL TO TOP BUTTON
+========================= */
+.scroll-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #ffffff;
+  color: #0ea5e9;
+  border: none;
+  font-size: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 992px) {
+  .footer-grid {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    text-align: center;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 32px 15px 20px;
+  }
+
+  .footer-glass {
+    padding: 22px 16px;
+  }
+
+  .footer-logo {
+    width: 60px;
+  }
+
+  .footer-desc {
+    font-size: 13px;
+  }
+
+  .footer-copy {
+    font-size: 13px;
+  }
+
+  .scroll-top {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    bottom: 20px;
+    right: 20px;
+  }
+}

@@ -1,0 +1,24 @@
+.pricing-section {
+  background: #ffffff;
+}
+
+.pricing-text {
+  font-size: 16px;
+  color: #111827;
+}
+.pricing-box {
+  max-width: 600px;
+  background: #f9fafb;
+  padding: 32px 24px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+}
+.pricing-text strong {
+  color: #0ea5e9;
+}
+@media (hover: hover) {
+  .pricing-box:hover {
+    transform: translateY(-4px);
+    transition: 0.3s ease;
+  }
+}

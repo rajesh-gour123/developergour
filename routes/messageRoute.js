@@ -44,7 +44,6 @@ router.get("/show", isLoggedIn, wrapAsync(async (req, res) => {
         }
     });
     res.render("admin/show", { messages })
-    console.log(messages)
 
 }));
 

@@ -14,7 +14,11 @@
 
       <!-- CONTACT FORM -->
       <div class="col-lg-7 contact-animate">
-        <form class="needs-validation contact-form" novalidate>
+        <form class="needs-validation contact-form" novalidate method="POST" action="https://api.web3forms.com/submit">
+          <input type="hidden" name="access_key" value="<%= web3formsAccessKey %>">
+          <input type="hidden" name="subject" value="<%= web3formsSubject %>">
+          <input type="hidden" name="from_name" value="<%= web3formsFromName %>">
+          <input type="checkbox" name="botcheck" style="display:none;">
 
           <div class="mb-3">
             <input type="text" name="name" class="form-control input-custom" placeholder="Your Name" required>
@@ -125,28 +129,30 @@
           return;
         }
 
-        // Prepare data
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData);
+        const accessKey = form.querySelector('[name="access_key"]')?.value?.trim();
+        if (!accessKey) {
+          Swal.fire("Missing setup", "Add your Web3Forms access key in .env first.", "error");
+          return;
+        }
 
-        // POST request
-        const res = await fetch("/submit", {
+        const formData = new FormData(form);
+
+        const res = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data)
+          body: formData
         });
 
         const json = await res.json();
 
-        if (json.success) {
-          Swal.fire("Success", json.msg, "success");
+        if (res.status === 200 && json.success) {
+          Swal.fire("Success", json.message || "Message sent successfully!", "success");
 
           form.reset();
           form.classList.remove("was-validated");
           form.querySelectorAll(".is-valid").forEach(el => el.classList.remove("is-valid"));
         }
         else {
-          Swal.fire("Error", json.error, "error");
+          Swal.fire("Error", json.message || "Something went wrong. Please try again.", "error");
         }
       });
 

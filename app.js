@@ -11,7 +11,6 @@ const session = require("express-session");
 
 // Routes
 const dashboard = require("./routes/dashboard");
-const messageRoute = require("./routes/messageRoute");
 
 // Utils
 const ExpressError = require("./utils/expressError");
@@ -54,10 +53,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use((req, res, next) => {
+  res.locals.web3formsAccessKey = process.env.WEB3FORMS_ACCESS_KEY || "";
+  res.locals.web3formsSubject = "New portfolio enquiry";
+  res.locals.web3formsFromName = "Rajesh Gour Portfolio";
+  next();
+});
+
 
 // -------------------- ROUTES --------------------
 app.use("/", dashboard);
-app.use("/client_msg", messageRoute);
 
 
 // -------------------- ERROR HANDLING --------------------

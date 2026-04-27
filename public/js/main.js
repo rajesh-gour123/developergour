@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===============================
   const typedHeroText = document.querySelector("#hero-typed-text");
   if (typedHeroText) {
-    const phrases = ["Rajesh Gour", "MERN Stack Developer"];
+    const phrases = ["Rajesh Gour", "MERN Stack"];
     const typeSpeed = 110;
     const deleteSpeed = 60;
     const pauseAfterTyping = 1400;

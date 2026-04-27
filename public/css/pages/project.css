@@ -15,6 +15,10 @@
   z-index: 1;
 }
 
+.projects-section .row > [class*="col-"] {
+  display: flex;
+}
+
 .projects-kicker {
   display: inline-flex;
   align-items: center;
@@ -53,6 +57,7 @@
 .project-card {
   position: relative;
   isolation: isolate;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -147,13 +152,15 @@
       TAGS
 ====================================== */
 .project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   margin: 4px 0 12px;
 }
 
 .project-tags span {
   display: inline-flex;
   align-items: center;
-  margin: 4px 6px 0 0;
   padding: 6px 12px;
   border-radius: 999px;
   background: linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(34, 197, 94, 0.12));
@@ -276,6 +283,10 @@
     font-size: 22px;
   }
 
+  .project-tags {
+    gap: 6px;
+  }
+
   .project-btn {
     font-size: 13px;
     padding: 10px 20px;
@@ -313,6 +324,11 @@
   .project-tags span {
     font-size: 11px;
     padding: 5px 10px;
+  }
+
+  .project-btn,
+  .view-more-btn {
+    width: 100%;
   }
 }
 

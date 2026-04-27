@@ -37,6 +37,50 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ===============================
+  // HERO TYPING EFFECT
+  // ===============================
+  const typedHeroText = document.querySelector("#hero-typed-text");
+  if (typedHeroText) {
+    const phrases = ["Rajesh Gour", "MERN Stack Developer"];
+    const typeSpeed = 110;
+    const deleteSpeed = 60;
+    const pauseAfterTyping = 1400;
+    const pauseAfterDeleting = 350;
+    let phraseIndex = 0;
+    let charIndex = phrases[0].length;
+    let isDeleting = true;
+
+    typedHeroText.textContent = phrases[0];
+
+    const tick = () => {
+      const currentPhrase = phrases[phraseIndex];
+
+      if (isDeleting) {
+        charIndex = Math.max(charIndex - 1, 0);
+      } else {
+        charIndex = Math.min(charIndex + 1, currentPhrase.length);
+      }
+
+      typedHeroText.textContent = currentPhrase.slice(0, charIndex);
+
+      let delay = isDeleting ? deleteSpeed : typeSpeed;
+
+      if (!isDeleting && charIndex === currentPhrase.length) {
+        delay = pauseAfterTyping;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        delay = pauseAfterDeleting;
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+      }
+
+      window.setTimeout(tick, delay);
+    };
+
+    window.setTimeout(tick, 1600);
+  }
+
+  // ===============================
   // ABOUT TEXT ANIMATION
   // ===============================
   if (document.querySelector(".about-section")) {
